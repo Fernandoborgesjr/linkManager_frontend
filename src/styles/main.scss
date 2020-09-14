@@ -1,6 +1,9 @@
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
  @import './now-ui-kit.scss';
 
-body{
-    border: solid 200px blue;
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
 }
