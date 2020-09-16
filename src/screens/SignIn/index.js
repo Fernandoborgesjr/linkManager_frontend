@@ -4,14 +4,12 @@ import { connect } from 'react-redux';
 import { signIn } from './SignInActions';
 
 const SignIn = (props) => {
-    const { account, signIn } = props;
+    const { signIn } = props;
 
     const submitHandler = (e) => {
         e.preventDefault();
-        signIn({ email: 'fernandoborgesjr96@outlook.com', password: "Ab123456" });
+        signIn({ email: "fernando_latrel100@hotmail.com", password: "Ab123456" });
     };
-
-    console.log('*** SignIn.account', account);
 
     return (
         <div className="container h-100 pt-5">
