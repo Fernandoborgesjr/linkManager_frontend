@@ -1,7 +1,8 @@
-import { Simulate } from "react-dom/test-utils";
+import { apiPost } from '../../helpers/api';
 
 export const SIGN_IN = 'SIGN_IN';
 
 export const signIn = (data) => {
-    return { type: SIGN_IN, payload: data };
+    const payload = apiPost('/auth/sign-in', data);
+    return { type: SIGN_IN, payload };
 };
