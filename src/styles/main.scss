@@ -7,3 +7,12 @@
     border: 0;
     box-sizing: border-box;
 }
+
+//inherit serve para herdar a informação do item pai
+
+.btn-clear{
+    background: none;
+    color: inherit;
+    font:inherit;
+    cursor: pointer;
+}
