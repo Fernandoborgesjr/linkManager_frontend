@@ -6,14 +6,17 @@ const defaultOptions = {
     path: '/',
 };
 export const getCookie = (name, options = {}) => {
-    !name ? null : cookie.get(name, { ...defaultOptions, ...options });
+    if (!name) return null;
+    return cookie.get(name, { ...defaultOptions, ...options });
 };
 
 export const setCookie = (name, value, options = {}) => {
-    !name || value === undefined ? null : cookie.set(name, value, { ...defaultOptions, ...options });
+    if (!name || value === undefined) return null;
+    cookie.set(name, value, { ...defaultOptions, ...options });
     return true;
 };
 
 export const removeCookie = (name, options = {}) => {
-    !name ? null : cookie.remove(name, { ...defaultOptions, ...options });
+    if (!name) return null
+    return cookie.remove(name, { ...defaultOptions, ...options });
 };

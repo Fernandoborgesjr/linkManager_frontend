@@ -1,0 +1,10 @@
+## Fluxo de dados dos formulários
+
+1° É realizado o submit na pagina;
+2° As informações/dados vão para o action. No action os dados são enviados para a api.
+    No action está configurado para retornar o tipo da requisição (Link_Create, Link_Edit, etc.) e os dados 
+    retornados da api.
+3° O retorno do action vai para o "state" da pagina e é enviado para o reducer, no qual analisa os dados e
+    atualiza o estado.
+
+Quando um reducer é adicionado ao projeto, ele precisa ser registrado no store.
