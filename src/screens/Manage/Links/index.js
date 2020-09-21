@@ -24,13 +24,13 @@ const Links = ({ links, linkList }) => {
 
                 links.map((link) => {
                     return (
-                        <div className="pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between">
+                        <div key={link.id} className="pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between">
                             <div className="pr-3">
                                 <img src="https://via.placeholder.com/100" alt="Link icon" />
                             </div>
                             <div className="align-self-center">
                                 <span className="text-primary clearfix strong">{link.label}</span>
-                                <span className="text-primary clearfix">{link.url}</span>
+                                <a className="text-primary clearfix" href={link.url} target='_blank'>{link.url}</a>
                             </div>
                             <div className="ml-auto p-2 clearfix">
                                 <span>Editar</span>

@@ -8,3 +8,8 @@
     atualiza o estado.
 
 Quando um reducer é adicionado ao projeto, ele precisa ser registrado no store.
+
+
+
+A função vinda do connect vai para o componente
+export default connect(function())(App);

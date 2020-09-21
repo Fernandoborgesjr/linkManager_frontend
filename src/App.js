@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter, Switch, Route, Link,
 } from 'react-router-dom';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 import ManageLinks from './screens/Manage/Links';
-import ManageLinksCreate from './screens/Manage/Links/Create'
-import ManageLinksEdit from './screens/Manage/Links/Edit'
-import Home from './screens/Home'
-const App = () => (
-  <BrowserRouter>
+import ManageLinksCreate from './screens/Manage/Links/Create';
+import ManageLinksEdit from './screens/Manage/Links/Edit';
+import Home from './screens/Home';
+import { connect } from 'react-redux';
+import { initAccount } from './actions/AccountActions';
+
+const App = ({ initAccount }) => {
+  useEffect(() => {
+    initAccount();
+  }, [initAccount]);
+
+
+  return (<BrowserRouter>
     <div>
       <nav>
         <ul className="list-group list-group-horizontal">
@@ -55,7 +63,12 @@ const App = () => (
     </Switch>
 
   </BrowserRouter>
+  );
+};
 
-);
+const mapStateToProps = (state) => {
+  return { account: state.account.account };
+};
 
-export default App;
+/* A função vinda do connect vai para o componente */
+export default connect(mapStateToProps, { initAccount })(App);
