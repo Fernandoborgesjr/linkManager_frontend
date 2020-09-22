@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { linkGet } from '../../../../actions/LinkActions';
+import FormCheck from '../../../../components/FormCheck';
+import FormGroup from '../../../../components/FormGroup';
 import Layout from '../../../Layouts/Manage/index';
-const Edit = () => {
+const Edit = ({ link, linkGet }) => {
+    const { id } = useParams();
+
+    useEffect(() => {
+        linkGet(id);
+    }, [id, linkGet]);
+
+    console.log(id)
+    console.log(link)
+
     return (
         <Layout>
             <h1>Editar Link</h1>
             <div>
                 <form>
-                    <div className="form-group">
-                        <label>Descrição</label>
-                        <input type="text" className="form-control" required />
-                    </div>
-                    <div className="form-group">
-                        <label>URL</label>
-                        <input type="text" className="form-control" required />
-                    </div>
-                    <div className="form-group form-check">
-                        <label className="form-check-label">
-                            <input type="checkbox" name="isSocial" />
-                            <span className="form-check-sign"></span>
-                            É rede social?
-                            </label>
-                    </div>
+                    <FormGroup label="Descrição" name="label" data={link} type="text" />
+                    <FormGroup label="URL" name="url" data={link} type="text" />
+                    <FormCheck label="É rede social?" name="isSocial" data={link} />
                     <div>
                         <button className="btn btn-primary btn-round">Entrar</button>
                     </div>
@@ -30,5 +32,9 @@ const Edit = () => {
     );
 };
 
+const mapStateToProps = (state) => {
+    return { link: state.link.link, }
+};
 
-export default Edit;
+
+export default connect(mapStateToProps, { linkGet })(Edit);
