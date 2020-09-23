@@ -27,7 +27,7 @@ const Edit = ({ link, linkGet, linkEdit }) => {
                     <FormGroup label="URL" name="url" data={link} type="text" />
                     <FormCheck label="É rede social?" name="isSocial" data={link} />
                     <div>
-                        <button className="btn btn-primary btn-round">Entrar</button>
+                        <button className="btn btn-primary btn-round">Salvar</button>
                     </div>
                 </form>
             </div>
