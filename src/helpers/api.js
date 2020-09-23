@@ -29,3 +29,11 @@ export const apiGet = (path) => {
     };
     return axios.get(url, options);
 };
+
+export const apiPut = (path, data = {}) => {
+    const url = getApiUrl(path);
+    const options = {
+        headers: getHeaders(),
+    };
+    return axios.put(url, data, options);
+};

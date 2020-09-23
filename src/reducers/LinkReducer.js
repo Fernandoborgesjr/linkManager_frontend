@@ -25,7 +25,11 @@ export default function (state = initialState, action) {
             const link = (response) ? response.data : null;
             return { ...state, link };
         }
-    
+        case LINK_EDIT: {
+            const response = (payload) ? payload.data : null;
+            const link = (response) ? response.data : null;
+            return { ...state, link };
+        }
         default:
             return state;
     };

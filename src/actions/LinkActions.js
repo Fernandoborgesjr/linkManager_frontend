@@ -1,4 +1,4 @@
-import { apiPost, apiGet } from "../helpers/api";
+import { apiPost, apiGet, apiPut } from "../helpers/api";
 
 export const LINK_CREATE = 'LINK_CREATE';
 export const LINK_EDIT = 'LINK_EDIT';
@@ -19,4 +19,10 @@ export const linkList = () => {
 export const linkGet = (id) => {
     const payload = apiGet(`/link/${id}`);
     return { type: LINK_GET, payload };
+};
+
+export const linkEdit = (data, id) => {
+    const isSocial = !!data.isSocial;
+    const payload = apiPut(`/link/${id}`, { ...data, isSocial });
+    return { type: LINK_EDIT, payload };
 };
