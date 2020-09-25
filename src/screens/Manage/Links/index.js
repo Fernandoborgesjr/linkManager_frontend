@@ -2,12 +2,16 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Layout from '../../Layouts/Manage/index';
-import { linkList, setLinkToRemove } from '../../../actions/LinkActions'
-const Links = ({ links, linkToRemove, linkList, setLinkToRemove }) => {
+import { linkList, setLinkToRemove, linkRemove } from '../../../actions/LinkActions'
+const Links = ({ links, linkRemove, linkToRemove, linkList, setLinkToRemove }) => {
 
     useEffect(() => {
         linkList();
     }, [linkList]);
+
+    const cancelDelete = (e) => setLinkToRemove(null);
+    const confirmDelete = (e) => (linkToRemove ? linkRemove(linkToRemove) : null);
+
 
     return (
         <Layout>
@@ -46,6 +50,20 @@ const Links = ({ links, linkToRemove, linkList, setLinkToRemove }) => {
                     )
                 })
                 : (<h1>Ainda nenhum link cadastrado :(</h1>)}
+
+            {linkToRemove ? (
+                <div className="alert alert-danger rounded float-center shadow-strong">
+                    <h4 className="alert-heading">Confirmação de exclusão!</h4>
+                    <p>Você tem certeza que quer excluir o item selecionado? Esta ação não
+                    poderá ser desfeita.
+                    </p>
+                    <hr />
+                    <div className="d-flex justify-content-between">
+                        <button className="btn btn-outline-light" onClick={cancelDelete}>Cancelar</button>
+                        <button className="btn btn-danger" onClick={confirmDelete}>Excluir</button>
+                    </div>
+                </div>
+            ) : null}
         </Layout>
     );
 };
@@ -57,4 +75,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { linkList, setLinkToRemove })(Links);
+export default connect(mapStateToProps, { linkList, setLinkToRemove, linkRemove })(Links);
