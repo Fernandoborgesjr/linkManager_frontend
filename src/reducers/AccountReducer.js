@@ -32,6 +32,7 @@ export default function (state = initialState, action) {
         }
         case INIT_ACCOUNT: {
             const account = getAccount();
+            //Aqui precisa verificar se o token ja não expirou, ou logar novamente por aqui
             return { ...state, account };
         }
         default: return state;
