@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { signOut } from '../../../actions/AccountActions';
 //Este children esta sendo desestruturado do props
 const Layout = ({ children, signOut, account }) => {
@@ -23,7 +23,7 @@ const Layout = ({ children, signOut, account }) => {
                         </span>
                     </div>
                     <div className="text-center">
-                        <strong>Links</strong>
+                        <strong><Link to="/links">Links</Link></strong>
                     </div>
                     <div>
                         <button className="btn-clear" onClick={signOutHandler}>Sair</button>

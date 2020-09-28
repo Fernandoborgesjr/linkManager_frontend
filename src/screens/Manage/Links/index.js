@@ -42,8 +42,8 @@ const Links = ({ links, linkRemove, linkToRemove, linkList, setLinkToRemove }) =
                                 <a className="text-primary clearfix" href={link.url} target='_blank'>{link.url}</a>
                             </div>
                             <div className="ml-auto p-2 clearfix">
-                                <Link to={`/manage/links/edit/${link.id}`} >Editar</Link>
-                                <button className="btn btn-clear" onClick={deleteClick}>Deletar</button>
+                                <Link className="btn btn-primary" to={`/manage/links/edit/${link.id}`} >Editar</Link>
+                                <button className="btn btn-danger" onClick={deleteClick}>Deletar</button>
 
                             </div>
                         </div>
