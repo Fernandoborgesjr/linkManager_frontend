@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-  BrowserRouter, Switch, Route, Link,
+  BrowserRouter, Switch, Route
 } from 'react-router-dom';
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
@@ -18,29 +18,6 @@ const App = ({ initAccount }) => {
 
 
   return (<BrowserRouter>
-    <div>
-      <nav>
-        <ul className="list-group list-group-horizontal">
-          <li className="list-group-item">
-            <Link to="/sign-in">Sign in</Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/sign-up">Sign up</Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/manage/links/create">Create Link</Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/manage/links/edit">Edit Link</Link>
-          </li>
-          <li className="list-group-item">
-            <Link to="/manage/links">Links</Link>
-          </li>
-        </ul>
-      </nav>
-
-    </div>
-
     <Switch>
       <Route path="/sign-in">
         <SignIn />
