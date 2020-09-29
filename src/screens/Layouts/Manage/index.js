@@ -11,16 +11,16 @@ const Layout = ({ children, signOut, account }) => {
     const signOutHandler = (e) => {
         e.preventDefault();
         signOut();
-    }; 
+    };
+
+
 
     return (
         <div className="layout">
             <nav className="navbar navbar-expand-lg bg-primary text-light">
                 <div className="container d-flex w-100 justify-content-between">
                     <div>
-                        <span>
-                            Voltar
-                        </span>
+                        <Link to="/links">Voltar</Link>
                     </div>
                     <div className="text-center">
                         <strong><Link to="/links">Links</Link></strong>

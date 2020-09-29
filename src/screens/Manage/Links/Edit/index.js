@@ -6,18 +6,29 @@ import { getFormData } from '../../../../helpers/form';
 import FormCheck from '../../../../components/FormCheck';
 import FormGroup from '../../../../components/FormGroup';
 import Layout from '../../../Layouts/Manage/index';
+import { useToasts } from 'react-toast-notifications';
+
 const Edit = ({ link, linkGet, linkEdit }) => {
     const { id } = useParams();
 
     useEffect(() => {
         linkGet(id);
     }, [id, linkGet]);
-
-    const submitHandler = (e) => {
+    const { addToast } = useToasts();
+   
+    const submitHandler = async (e) => {
         e.preventDefault();
         const data = getFormData(e);
-        linkEdit(data, id);
+        const { payload } = await linkEdit(data, id);
+        if (payload.status === 200)
+            addToast("Edição realizada com sucesso", {
+                appearance: 'success',
+                autoDismiss: true,
+            });
     };
+
+
+
     return (
         <Layout>
             <h1>Editar Link</h1>

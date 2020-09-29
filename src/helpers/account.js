@@ -3,7 +3,7 @@ import { setCookie, getCookie, removeCookie } from "./storage";
 const expires = new Date();
 expires.setFullYear(expires.getFullYear() + 1);
 const sameSite = 'none';
-const secure = true;
+const secure = false;
 
 const options = { expires, sameSite, secure };
 

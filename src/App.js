@@ -10,6 +10,7 @@ import ManageLinksEdit from './screens/Manage/Links/Edit';
 import Home from './screens/Home';
 import { connect } from 'react-redux';
 import { initAccount } from './actions/AccountActions';
+import { ToastProvider } from 'react-toast-notifications';
 
 const App = ({ initAccount }) => {
   useEffect(() => {
@@ -17,29 +18,32 @@ const App = ({ initAccount }) => {
   }, [initAccount]);
 
 
-  return (<BrowserRouter>
-    <Switch>
-      <Route path="/sign-in">
-        <SignIn />
-      </Route>
-      <Route path="/sign-up">
-        <SignUp />
-      </Route>
-      <Route path="/manage/links/create">
-        <ManageLinksCreate />
-      </Route>
-      <Route path="/manage/links/edit/:id">
-        <ManageLinksEdit />
-      </Route>
-      <Route path="/manage/links">
-        <ManageLinks />
-      </Route>
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
+  return (
+    <ToastProvider>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/sign-in">
+            <SignIn />
+          </Route>
+          <Route path="/sign-up">
+            <SignUp />
+          </Route>
+          <Route path="/manage/links/create">
+            <ManageLinksCreate />
+          </Route>
+          <Route path="/manage/links/edit/:id">
+            <ManageLinksEdit />
+          </Route>
+          <Route path="/manage/links">
+            <ManageLinks />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
 
-  </BrowserRouter>
+      </BrowserRouter>
+    </ToastProvider>
   );
 };
 

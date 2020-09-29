@@ -1,17 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { useToasts } from 'react-toast-notifications';
 import { linkCreate } from '../../../../actions/LinkActions';
 import { getFormData } from '../../../../helpers/form';
 import Layout from '../../../Layouts/Manage/index';
 
-const Create = ({ link, linkCreate }) => {
-    const submitHandler = (e) => {
-        e.preventDefault();
-        linkCreate(getFormData(e));
-    };
 
+const Create = ({ link, linkCreate }) => {
+
+    const { addToast } = useToasts();
+
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        const { payload } = await linkCreate(getFormData(e));
+        if (payload.status === 200) {
+            addToast("Cadastro realizado com sucesso", {
+                appearance: 'success',
+                autoDismiss: true,
+            });
+            console.log("Chegou aqui")
+        };
+
+    };
     if (link) {
+        console.log("Tem link", link);
         return <Redirect to="/manage/links" />
     };
 

@@ -17,9 +17,9 @@ const Links = ({ links, linkRemove, linkToRemove, linkList, setLinkToRemove }) =
         <Layout>
             <div className="row">
                 <div className="col">
-                    <h1>Links</h1>
+                    <h3>Links</h3>
                 </div>
-                <div className="col text-right align-self-bottom pt-2">
+                <div className="col text-right align-self-bottom ">
                     <Link to='/manage/links/create' className="btn btn-primary">Adicionar</Link>
                 </div>
             </div>
@@ -38,7 +38,7 @@ const Links = ({ links, linkRemove, linkToRemove, linkList, setLinkToRemove }) =
                                 <img src="https://via.placeholder.com/100" alt="Link icon" />
                             </div>
                             <div className="align-self-center">
-                                <span className="text-primary clearfix strong">{link.label}</span>
+                                <span className="clearfix strong">{link.label}</span>
                                 <a className="text-primary clearfix" href={link.url} target='_blank'>{link.url}</a>
                             </div>
                             <div className="ml-auto p-2 clearfix">
