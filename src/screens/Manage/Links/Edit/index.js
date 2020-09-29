@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { linkGet, linkEdit } from '../../../../actions/LinkActions';
 import { getFormData } from '../../../../helpers/form';
 import FormCheck from '../../../../components/FormCheck';
@@ -26,8 +26,6 @@ const Edit = ({ link, linkGet, linkEdit }) => {
                 autoDismiss: true,
             });
     };
-
-
 
     return (
         <Layout>

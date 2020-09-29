@@ -19,12 +19,9 @@ const Create = ({ link, linkCreate }) => {
                 appearance: 'success',
                 autoDismiss: true,
             });
-            console.log("Chegou aqui")
         };
-
     };
     if (link) {
-        console.log("Tem link", link);
         return <Redirect to="/manage/links" />
     };
 
